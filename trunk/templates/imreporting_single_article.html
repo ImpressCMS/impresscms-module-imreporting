@@ -1,0 +1,45 @@
+<{if $imreporting_article}>	
+	<div class="imreporting_article_container">
+	    <{if !$list}>
+    		<h1 class="article-title"><{$imreporting_article.article_title}></h1>
+    	<{else}>
+    	    <h1 class="article-title"><{$imreporting_article.itemLink}></h1>
+    	<{/if}>	
+		<div class="imreporting_article_info"><{$imreporting_article.article_info}> <{$smarty.const._CO_IMREPORTING_ARTICLE_BY}> <img src="<{$imreporting_images_url}>user.gif" alt="" /> <{$imreporting_article.article_uid}> <{$smarty.const._CO_IMREPORTING_ARTICLE_ON}> <img src="<{$imreporting_images_url}>clock.gif" alt="" /> 
+		<{if $change_date_format}>
+		<{$imreporting_article.article_published_date}> 
+		<{else}>
+		<{$imreporting_article.article_day}> <{$imreporting_article.article_day_number}> <{$imreporting_article.article_month}> <{$imreporting_article.article_year}>
+		<{/if}>
+		</div>
+		<{if $imreporting_article.categories}>
+			<div class="imreporting_article_categories">
+				<{foreach item=category from=$imreporting_article.categories name=loop}>
+					<a href="index.php?cid=<{$category.id}>"><{$category.title}></a><{if !$smarty.foreach.loop.last}>, <{/if}>
+			 	<{/foreach}>
+			</div>
+			<br style="clear:left;" />
+		<{/if}>
+		<{if $imreporting_article.article_include_summary || $list}>
+			<div class="imreporting_article_summary">
+				<{$imreporting_article.article_summary}>
+			</div>
+		<{/if}>
+		<{if !$list}>	
+		<div class="imreporting_article_content">
+			<{$imreporting_article.article_content}>
+		</div>
+		<div class="imreporting_article_more">
+			<{$smarty.const._MD_IMREPORTING_ALL_ARTICLES}> <{$smarty.const._CO_IMREPORTING_ARTICLE_BY}> <img src="<{$imreporting_images_url}>user-pages.gif" alt="" /> <{$imreporting_article.article_poster_link}>
+		</div>
+		<{else}>
+		<div class="imreporting_article_comments">
+			<{$imreporting_article.article_comment_info}>
+		</div>
+		<br style="clear:left;" />
+		<{/if}>
+		<{if $imreporting_article.userCanEditAndDelete}>
+			<div class="imreporting_admin_links"><{$imreporting_article.editItemLink}><{$imreporting_article.deleteItemLink}></div>
+		<{/if}>
+	</div>
+<{/if}>

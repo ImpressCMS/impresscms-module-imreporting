@@ -1,0 +1,15 @@
+<{if $articles_showbreadcrumb}>
+<div class="imreporting_headertable">
+	<{if $imreporting_module_home}>
+		<span class="imreporting_modulename"><{$imreporting_module_home}></span>
+	<{/if}>
+	<{if $imreporting_category_path}>
+		<span class="imreporting_breadcrumb">
+		<{if $imreporting_module_home}>
+			&gt;
+		<{/if}>
+	  	<{$imreporting_category_path}></span>
+	<{/if}>
+</div>
+<{/if}>
+<div id="imreporting_submit" style="clear: both;"><{if $imreporting_showSubmitLink && $imreporting_userCanSubmit}><a href="<{$imreporting_url}>post.php?op=mod"><{$smarty.const._MI_IMREPORTING_POST_ADD}></a><{/if}></div>

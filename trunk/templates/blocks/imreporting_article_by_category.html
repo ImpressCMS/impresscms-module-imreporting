@@ -1,0 +1,5 @@
+<ul>
+<{foreach item=articles_by_month key=cid from=$block.articles_by_categories}>
+	<li><a href="<{$xoops_url}>/modules/imreporting/index.php?cid=<{$cid}>"><{$articles_by_month.title}> (<{$articles_by_month.qtde}>)</li></a>
+<{/foreach}>
+</ul>

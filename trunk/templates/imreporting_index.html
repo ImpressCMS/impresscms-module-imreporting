@@ -1,0 +1,10 @@
+<{includeq file='db:imreporting_header.html'}>
+
+<{foreach item=imreporting_article from=$imreporting_articles}>
+	<{includeq file='db:imreporting_single_article.html' list=true imreporting_article=$imreporting_article}>
+<{/foreach}>
+<{if $navbar}>
+	<div id="imreporting_navbar"><{$smarty.const._MD_IMREPORTING_NAV_PAGES}> <{$navbar}></div>
+<{/if}>
+
+<{includeq file='db:imreporting_footer.html'}>

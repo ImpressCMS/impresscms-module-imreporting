@@ -1,0 +1,5 @@
+<ul>
+<{foreach item=articles_by_month from=$block.articles_by_months}>
+	<li><a href="<{$xoops_url}>/modules/imreporting/index.php?y=<{$articles_by_month.articles_year_nr}>&m=<{$articles_by_month.articles_month_nr}>"><{$articles_by_month.articles_month_name}> <{$articles_by_month.articles_year_name}> (<{$articles_by_month.articles_count}>)</li></a>
+<{/foreach}>
+</ul>

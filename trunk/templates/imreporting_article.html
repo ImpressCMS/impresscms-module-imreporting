@@ -1,0 +1,22 @@
+<{includeq file='db:imreporting_header.html'}>
+
+<{if $imreporting_article}>
+	<{includeq file='db:imreporting_single_article.html'}>
+<{else}>
+	<{foreach item=imreporting_article from=$imreporting_articles}>
+		<{includeq file='db:imreporting_single_article.html' list=true imreporting_article=$imreporting_article}>
+	<{/foreach}>
+	<{if $navbar}>
+		<div id="imreporting_navbar"><{$smarty.const._MD_IMREPORTING_NAV_PAGES}> <{$navbar}></div>
+	<{/if}>
+<{/if}>
+
+<{if $imreporting_articleform}>
+	<{includeq file='db:system_common_form.html' form=$imreporting_articleform}>
+<{/if}>
+
+<{if $icmspersistable_delete_confirm}>
+	<{$icmspersistable_delete_confirm}>
+<{/if}>
+
+<{includeq file='db:imreporting_footer.html'}>

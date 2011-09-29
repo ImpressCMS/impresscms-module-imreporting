@@ -1,0 +1,41 @@
+<{if $block.act_spotlight}>
+    <div class="imreporting_spotlight">
+      <div id="principal">
+      	<img src="<{$xoops_url}><{$block.spotlight_image}>" align="left" hspace="5" vspace="5" />
+        <h1><{$block.spotlight_article.itemLink}></h1>
+        <p style="text-align:justify;"><{$block.spotlight_article.article_summary}></p>
+      </div>
+      
+	<ul>
+	<{foreach item=imreporting_article from=$block.articles}>
+	  <{if $imreporting_article.article_id != $block.spotlight_article.article_id}>
+		<li><a href="<{$block.imreporting_url}>article.php?article_id=<{$imreporting_article.article_id}>">
+		<{if $block.orderby == 'pubdate'}>
+		  [<{$imreporting_article.article_published_date_int|date_format:"%Y-%m-%d"}>]
+		<{else}>
+		  (<{$imreporting_article.counter}>)
+		<{/if}> 
+		<{$imreporting_article.article_title|truncate:$block.title_length}>
+		</a>
+		<{if $block.show_summary}>
+		 <p><i><{$imreporting_article.article_summary}></i></p>
+		<{/if}>
+		</li>
+	  <{/if}>	
+	<{/foreach}>
+	</ul>
+    </div>
+<{else}>
+	<ul>
+	<{foreach item=imreporting_article from=$block.articles}>
+		<li><a href="<{$block.imreporting_url}>article.php?article_id=<{$imreporting_article.article_id}>">
+		<{if $block.orderby == 'pubdate'}>
+		  [<{$imreporting_article.article_published_date}>]
+		<{else}>
+		  (<{$imreporting_article.counter}>)
+		<{/if}> 
+		<{$imreporting_article.article_title|truncate:$block.title_length}>
+		</a></li>
+	<{/foreach}>
+	</ul>
+<{/if}>

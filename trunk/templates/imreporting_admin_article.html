@@ -1,0 +1,34 @@
+<{if $imreporting_article_title}>
+	<h1><{$imreporting_article_title}></h1>
+<{/if}>
+<{if $imreporting_article_info}>
+	<p><{$imreporting_article_info}></p>
+<{/if}>
+
+<{if $imreporting_article_table}>
+	<{$imreporting_article_table}>
+<{/if}>
+
+<{if $addarticle}>
+	<{includeq file='db:system_common_form.html' form=$addarticle}>
+<{/if}>
+
+<script language="JavaScript" type="text/JavaScript">
+	jQuery("#new_category_tray").hide();
+	
+	function imtaggingAddCategory() {
+		var newCategory;
+		var parentCategory;
+		newCategory = jQuery("#new_category_title").val();
+		parentCategory = jQuery("#category_pid").val();
+
+		jQuery.post("article.php",
+		  { articleid: "<{$article_id}>", op: "addcategory", category_title: newCategory, category_pid: parentCategory},
+		  function(data){
+			jQuery("#categories").hide();
+			jQuery("#categories").html(data);
+			jQuery("#categories").slideDown("slow");
+		  }
+		);
+	}
+</script>
